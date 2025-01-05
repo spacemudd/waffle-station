@@ -1,0 +1,11 @@
+.video-container {
+    width: 50%;
+    max-width: 800px; /* Optional: Limit the maximum width */
+    height: 450px; /* Adjust height as needed */
+    background-color: #f8f9fa; /* Light gray background */
+    border: 1px dashed #dee2e6; /* Dashed border as a placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
