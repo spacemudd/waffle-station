@@ -112,3 +112,38 @@ a {
 a:hover {
     text-decoration: none; /* لإزالة الخط تحت النص عند المرور بالماوس */
 }
+
+/* تحسين مظهر المدخلات */
+input.form-control:focus {
+    border-color: #6351ce;
+    box-shadow: 0 0 5px rgba(99, 81, 206, 0.5);
+}
+
+/* تحسين الأزرار */
+button[type="submit"] {
+    background-color: #6351ce;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+button[type="submit"]:hover {
+    background-color: #4c39b5;
+}
+
+/* تغيير لون رابط "نسيت كلمة المرور" عند المرور عليه */
+a.text-primary:hover {
+    text-decoration: underline;
+}
+/* لتوسيط الشعار */
+.logo {
+    max-width: 150px; /* الحد الأقصى للعرض */
+    width: 100%; /* تأكد من أن الشعار لا يتجاوز حجم العنصر */
+    height: auto;
+}
+
+/* إضافة تباعد أعلى وأسفل الشعار */
+.modal-body .text-center {
+    margin-bottom: 20px;
+}

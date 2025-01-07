@@ -22,4 +22,11 @@ class ProductController extends Controller
     }
 
 
+
+    public function getItems(){
+        $items = Product::all();
+        return view('back.pages.products', compact('items'));
+    }
+
+
 }

@@ -6,6 +6,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\PersonalFormController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BookingRequestController;
 
 
 /*
@@ -32,3 +36,26 @@ Route::get('/clear-session', function () {
     return redirect()->route('home');
 });
 
+Route::get('/admin', function(){
+    return view('back.pages.index');
+})->name('dashboard');
+
+
+
+
+Route::get('/admin/products',[ProductController::class, 'getItems'])->name('get-back-items');
+
+
+Route::get('/admin/settings', [SettingsController::class, 'index'])->name('settings.index');
+Route::post('/admin/settings', [SettingsController::class, 'store'])->name('settings.store');
+
+
+Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');Route::post('register', [RegisterController::class, 'register']);
+Route::post('register', [RegisterController::class, 'register']);
+
+Route::post('login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+
+Route::post('/booking/store', [BookingRequestController::class, 'store'])->name('booking.store');

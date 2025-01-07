@@ -22,7 +22,6 @@ class CartController extends Controller
             ]
         ]);
         
-
         return redirect()->route(route:'home')->with('message', 'Successfully added');
    }
     

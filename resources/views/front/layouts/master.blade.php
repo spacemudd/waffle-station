@@ -11,34 +11,189 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- SweetAlert CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     </head>
+
+
+
     <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{{asset('assets/logowaffle.png')}}" alt="Logo" style="height: auto; width:120px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('about')}}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-                    
-                    <!-- Basket Icon with count -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('cart')}}">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="badge bg-warning text-dark" id="cart-count">{{ Cart::getTotalQuantity() }}</span>                        </a>
-                    </li>
-                </ul>
-            </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="{{ asset('assets/logowaffle.png') }}" alt="Logo" style="height: auto; width:120px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+
+                <!-- Conditional Login or Profile Link -->
+                @auth
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="#">My Profile</a></li>
+                        <!-- Form for Logout -->
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                @csrf
+                                <button type="submit" class="dropdown-item" style="background-color: transparent;">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                </li>
+                @endauth
+
+                <!-- Basket Icon with count -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('cart') }}">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge bg-warning text-dark" id="cart-count">{{ Cart::getTotalQuantity() }}</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
+
+<!-- Modal Login -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Logo Section -->
+        <div class="text-center mb-4">
+          <img src="{{asset('assets/logowaffle.png')}}" alt="Logo" class="logo">
+        </div>
+
+        <form action="{{ url('login') }}" method="POST">
+            @csrf
+            <div class="mb-4">
+                <label for="email" class="form-label text-muted">Email</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email">
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="form-label text-muted">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" id="password" name="password" required placeholder="Enter your password">
+                </div>
+            </div>
+            <div class="mb-4 d-flex justify-content-between">
+                <div>
+                    <input type="checkbox" id="rememberMe" name="remember">
+                    <label for="rememberMe" class="form-check-label text-muted">Remember me</label>
+                </div>
+                <a href="#" class="text-primary" style="text-decoration: none;">Forgot password?</a>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary w-100 py-2">Login</button>
+            </div>
+            <div class="mt-3 text-center">
+                <span>Don't have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" class="text-primary">Sign up</a></span>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Sign Up -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="signupModalLabel">Please Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Logo Section -->
+        <div class="text-center mb-4">
+          <img src="{{asset('assets/logowaffle.png')}}" alt="Logo" class="logo">
+        </div>
+
+        <form action="{{ url('register') }}" method="POST">
+            @csrf
+            <div class="mb-4">
+                <label for="fullName" class="form-label text-muted">Full Name</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="fullName" name="full_name" required placeholder="Enter your full name">
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="form-label text-muted">Email</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="phoneNumber" class="form-label text-muted">Phone Number</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="phone_number" name="phone_number" required placeholder="Phone Number">
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="address" class="form-label text-muted">Address</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="address" name="address" required placeholder="Address">
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="form-label text-muted">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" id="password" name="password" required placeholder="Choose a password">
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="password_confirmation" class="form-label text-muted">Confirm Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required placeholder="Confirm your password">
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-success w-100 py-2">Sign Up</button>
+            </div>
+            <div class="mt-3 text-center">
+                <span>Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="text-primary">Login</a></span>
+            </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
     <!-- Main Content -->
     @yield('content')
@@ -111,10 +266,14 @@
                     <h6 class="text-uppercase fw-bold">Contact</h6>
                     <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
                     <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-                    <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
+                    <p><i class="fas fa-envelope mr-3"></i> info@wstation-sa.com</p>
                     <p><i class="fas fa-phone mr-3"></i>  + 966 55 645 6091</p>
                     <p><i class="fas fa-phone mr-3"></i>  + 966 56 581 9252</p>
                 </div>
+
+
+
+
             </div>
         </div>
     </section>
