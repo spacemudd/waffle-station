@@ -2,41 +2,6 @@
 
 <link rel="stylesheet" href="{{ asset('front/cartstyle.css') }}">
 
-<style>
-    .payment-option {
-        border: 1px solid #ddd; /* حدود رمادية */
-        border-radius: 10px; /* حواف مستديرة */
-        padding: 15px; /* مسافات داخلية */
-        margin-bottom: 15px; /* مسافة بين العناصر */
-        display: flex; /* ترتيب العناصر بشكل أفقي */
-        align-items: center; /* محاذاة العناصر عموديًا */
-        background-color: #f9f9f9; /* خلفية خفيفة */
-        cursor: pointer; /* مؤشر عند التمرير */
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .payment-option:hover {
-        background-color: #f1f1f1; /* لون خلفية عند التمرير */
-        border-color: #007bff; /* لون الحدود عند التمرير */
-    }
-
-    .form-check-input {
-        margin-right: 10px; /* مسافة بين المدخل والنص */
-    }
-
-    .form-check-label {
-        display: flex; /* ترتيب العناصر داخل اللابل */
-        align-items: center; /* محاذاة عمودية */
-        font-size: 16px; /* حجم النص */
-    }
-
-    .icon {
-        font-size: 20px; /* حجم الأيقونة */
-        color: #007bff; /* لون الأيقونة */
-        margin-right: 10px; /* مسافة بين الأيقونة والنص */
-    }
-</style>
-
 
 @section('content')
 <div class="container-fluid my-5">
