@@ -2,6 +2,42 @@
 
 <link rel="stylesheet" href="{{ asset('front/cartstyle.css') }}">
 
+<style>
+    .payment-option {
+        border: 1px solid #ddd; /* حدود رمادية */
+        border-radius: 10px; /* حواف مستديرة */
+        padding: 15px; /* مسافات داخلية */
+        margin-bottom: 15px; /* مسافة بين العناصر */
+        display: flex; /* ترتيب العناصر بشكل أفقي */
+        align-items: center; /* محاذاة العناصر عموديًا */
+        background-color: #f9f9f9; /* خلفية خفيفة */
+        cursor: pointer; /* مؤشر عند التمرير */
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .payment-option:hover {
+        background-color: #f1f1f1; /* لون خلفية عند التمرير */
+        border-color: #007bff; /* لون الحدود عند التمرير */
+    }
+
+    .form-check-input {
+        margin-right: 10px; /* مسافة بين المدخل والنص */
+    }
+
+    .form-check-label {
+        display: flex; /* ترتيب العناصر داخل اللابل */
+        align-items: center; /* محاذاة عمودية */
+        font-size: 16px; /* حجم النص */
+    }
+
+    .icon {
+        font-size: 20px; /* حجم الأيقونة */
+        color: #007bff; /* لون الأيقونة */
+        margin-right: 10px; /* مسافة بين الأيقونة والنص */
+    }
+</style>
+
+
 @section('content')
 <div class="container-fluid my-5">
     <div class="row justify-content-center">
@@ -22,38 +58,50 @@
                                 <p class="card-text text-muted mt-4 space">SHIPPING DETAILS</p>
                                 <hr class="my-0">
                             </div>
-                            <div class="card-body">
-                                <div class="row mt-4">
-                                    <div class="col"><p class="text-muted mb-2">PAYMENT DETAILS</p><hr class="mt-0"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="NAME" class="small text-muted mb-1">NAME ON CARD</label>
-                                    <input type="text" class="form-control form-control-sm" name="NAME" id="NAME" placeholder="BBBootstrap Team">
-                                </div>
-                                <div class="form-group">
-                                    <label for="CARD_NUMBER" class="small text-muted mb-1">CARD NUMBER</label>
-                                    <input type="text" class="form-control form-control-sm" name="CARD_NUMBER" id="CARD_NUMBER" placeholder="4534 5555 5555 5555">
-                                </div>
-                                <div class="row no-gutters">
-                                    <div class="col-sm-6 pr-sm-2">
-                                        <div class="form-group">
-                                            <label for="EXPIRY_DATE" class="small text-muted mb-1">VALID THROUGH</label>
-                                            <input type="text" class="form-control form-control-sm" name="EXPIRY_DATE" id="EXPIRY_DATE" placeholder="06/21">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="CVC" class="small text-muted mb-1">CVC CODE</label>
-                                            <input type="text" class="form-control form-control-sm" name="CVC" id="CVC" placeholder="183">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-md-5">
-                                    <div class="col">
-                                        <button type="button" class="btn btn-lg btn-block">PAY</button>
-                                    </div>
-                                </div>
-                            </div>
+                           <!-- إضافة مكتبة Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<div class="card-body">
+    <div class="row mt-4">
+        <div class="col">
+            <p class="text-muted mb-2">PLEASE SELECT YOUR PAYMENT METHOD</p>
+            <hr class="mt-0">
+        </div>
+    </div>
+
+    <!-- خيارات الدفع مع الأيقونات -->
+    <div class="row">
+        <div class="col">
+            <!-- الخيار الأول -->
+            <div class="payment-option">
+                <input class="form-check-input" type="radio" name="payment_method" id="credit_debit_card" value="credit_debit_card">
+                <label class="form-check-label" for="credit_debit_card">
+                    <i class="fas fa-credit-card icon"></i> <!-- أيقونة البطاقة -->
+                    Pay with your Credit/Debit Card
+                </label>
+            </div>
+
+            <!-- الخيار الثاني -->
+            <div class="payment-option">
+                <input class="form-check-input" type="radio" name="payment_method" id="tabby" value="tabby">
+                <label class="form-check-label" for="tabby">
+                    <i class="fas fa-wallet icon"></i> <!-- أيقونة المحفظة -->
+                    Pay with Tabby
+                </label>
+            </div>
+
+            <!-- الخيار الثالث -->
+            <div class="payment-option">
+                <input class="form-check-input" type="radio" name="payment_method" id="tamara" value="tamara">
+                <label class="form-check-label" for="tamara">
+                    <i class="fas fa-money-check icon"></i> <!-- أيقونة الشيك -->
+                    Pay with Tamara
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
                         </div>
                     </div>
 
