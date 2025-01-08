@@ -69,7 +69,7 @@ class BookingRequestController extends Controller
             // إعادة التوجيه إلى صفحة الهوم مع رسالة نجاح
             return redirect()->route('home')->with('message', 'تم الحجز بنجاح وتم إضافة المنتج إلى السلة');
         } else {
-            return response()->json(['message' => 'Unauthorized'], 401);
+            return redirect()->route('home')->with('showLoginModal', true);
         }
     }
 }

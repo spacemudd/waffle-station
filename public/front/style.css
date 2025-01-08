@@ -147,3 +147,11 @@ a.text-primary:hover {
 .modal-body .text-center {
     margin-bottom: 20px;
 }
+
+a{
+    color: black;
+}
+
+.sign-up-button{
+    color: #ffaf3d;
+}

@@ -1,6 +1,18 @@
 @extends('front.layouts.master')
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+
 @section('content')
+
+
+@if(session('unauthorized_message'))
+    <script>
+        alert("{{ session('unauthorized_message') }}");
+    </script>
+@endif
+
 
 @if (session('message'))
 <div>{{ session('messege') }}</div>
@@ -73,17 +85,15 @@
                     <div class="text-center mt-3">
                     <a href="{{ route('product.details', ['id' => $product->id]) }}">
                     </a>
-
-
-                        <!-- <form action="#" method="POST" style="display: inline-block; width: 48%;"> -->
-                            <!-- @csrf -->
-                            <!-- <input type="hidden" name="quantity" id="hiddenQuantity" value="1"> -->
-                            <button class="btn btn-primary" style="width: 48%; background-color:#fd7e14; border-color:#fd7e14;" 
-                            data-bs-toggle="modal" data-bs-target="#requestModal" data-product-name="{{ $product->product_name }}">
-                            Request Now
-                        </button>
-                            <!-- <button type="submit" class="btn btn-success" style="width: 100%; background-color: #28a745; border-color: #28a745;">Add to Cart</button> -->
-                        <!-- </form> -->
+                            <button 
+                                class="btn btn-primary d-flex align-items-center justify-content-center" 
+                                style="width: 48%; background-color: #ffaf3d; border-color: #ffaf3d; border-radius: 8px; font-size: 16px; font-weight: bold;" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#requestModal" 
+                                data-product-name="{{ $product->product_name }}">
+                                <i class="fas fa-cart-plus me-2"></i> <!-- الأيقونة -->
+                                Request Now
+                            </button>
                     </div>
                                     </div>
                                 </div>
@@ -100,7 +110,6 @@
             <img src="{{ asset('assets/banner.jpg') }}" alt="Full Width Image" style="width: 100%; height: auto;">
         </div>
     </section>
-
 <!-- Modal Form -->
 <div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="requestModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -110,115 +119,100 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
-            <form action="{{ route('booking.store') }}" method="POST" style="display: inline-block; width: 48%;">
-            @csrf
-            <input type="text" name="productName" value="{{ $product->product_name }}">
-                <!-- Booking Date Field -->
-                <div class="mb-4">
-                    <label for="bookingDate" class="form-label fw-bold">Booking Date</label>
-                    <input type="date" class="form-control" id="bookingDate" name="booking_date" required>
-                </div>
-
-                <!-- Location Description -->
-                <div class="mb-4">
-                    <label for="locationDescription" class="form-label fw-bold">Description of the Place</label>
-                    <div class="d-flex justify-content-around">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="privateLocation" name="agency[]" value="Private">
-                            <label class="form-check-label" for="privateLocation">Private</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="schoolRented" name="agency[]" value="School Rented">
-                            <label class="form-check-label" for="schoolRented">School</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="rentLocation" name="agency[]" value="Rent">
-                            <label class="form-check-label" for="rentLocation">Rented</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product Selections -->
-                <div class="row">
-
-
-                    <div class="col-md-6 mb-4">
-                        <label for="secondProduct" class="form-label fw-bold">Second Product</label>
-                        <select class="form-control" id="second_product" name="second_product" required>
-                            <option value="" disabled selected>Choose</option>
-                            <option value="Waffle">Waffle</option>
-                            <option value="Mini PanCake">Mini PanCake</option>
-                            <option value="Japanese PanCake">Japanese PanCake</option>
-                            <option value="Waffle Stick">Waffle Stick</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <label for="rawMaterials1" class="form-label fw-bold">Additional Raw Materials</label>
-                        <select class="form-control" id="rawMaterials1" name=" additional" required>
-                            <option value="" disabled selected>Choose</option>
-                            <option value="No">No Additional</option>
-                            <option value="50 Extra people (172.5 SAR)">50 Extra people (172.5 SAR)</option>
-                            <option value="100 Extra people (345 SAR)">100 Extra people (345 SAR)</option>
-                            <option value="200 Extra people (690 SAR)">200 Extra people (690 SAR)</option>
-                            <option value="400 Extra people (1380 SAR)">400 Extra people (1380 SAR)</option>
-                            <option value="800 Extra people (2760 SAR)">800 Extra people (2760 SAR)</option>
-                        </select>
+                <form action="{{ route('booking.store') }}" method="POST" style="display: inline-block; width: 100%; padding: 20px;">
+                    @csrf
+                    <input type="hidden" name="productName" value="{{ $product->product_name }}">
+                    
+                    <!-- Booking Date Field -->
+                    <div class="mb-4">
+                        <label for="bookingDate" class="form-label fw-bold">Booking Date</label>
+                        <input type="date" class="form-control" id="bookingDate" name="booking_date" required>
                     </div>
 
-                    <!-- <div class="col-md-6">
-                        <label for="rawMaterials2" class="form-label fw-bold">Do you want a maid with the cart?</label>
-                        <select class="form-control" id="rawMaterials2" name="rawMaterials" required>
-                            <option value="" disabled selected>Choose</option>
-                            <option value="Material1">No</option>
-                            <option value="Material2">4 Hours (250 SAR)</option>
-                            <option value="Material3">5 Hours (300 SAR)</option>
-                            <option value="Material4">6 Hours (350 SAR)</option>
-                            <option value="Material5">12 Hours (550 SAR)</option>
-                        </select>
-                    </div> -->
-                </div>
-
-                <div class="mb-4">Fav
-                    <label for="rawMaterials" class="form-label fw-bold">Your Favorite Sauces</label>
-                    <div id="rawMaterials" class="form-control" style="border: none; padding: 0;">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="fav_sauce[]" id="material1" value="Belgian Chocolate Free">
-                            <label class="form-check-label" for="material1">Belgian Chocolate Free</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="fav_sauce[]" id="material2" value="Caramel Sauce Free">
-                            <label class="form-check-label" for="material2">Caramel Sauce Free</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="fav_sauce[]" id="material3" value="Pistachio Sauce Free">
-                            <label class="form-check-label" for="material3">Pistachio Sauce Free</label>
+                    <!-- Location Description -->
+                    <div class="mb-4">
+                        <label for="locationDescription" class="form-label fw-bold">Description of the Place</label>
+                        <div class="d-flex justify-content-between">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="privateLocation" name="agency[]" value="Private">
+                                <label class="form-check-label" for="privateLocation">Private</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="schoolRented" name="agency[]" value="School Rented">
+                                <label class="form-check-label" for="schoolRented">School</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rentLocation" name="agency[]" value="Rent">
+                                <label class="form-check-label" for="rentLocation">Rented</label>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                    <!-- Product Selections -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="secondProduct" class="form-label fw-bold">Second Product</label>
+                            <select class="form-control" id="second_product" name="second_product" required>
+                                <option value="" disabled selected>Choose</option>
+                                <option value="Waffle">Waffle</option>
+                                <option value="Mini PanCake">Mini PanCake</option>
+                                <option value="Japanese PanCake">Japanese PanCake</option>
+                                <option value="Waffle Stick">Waffle Stick</option>
+                            </select>
+                        </div>
 
-                <div class="text-end fw-bold mb-4">
-                    Total Price: <span id="totalPriceText" name="total_price">{{ $product->price }}</span>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <input type="hidden" id="totalPrice" name="total_price" value="{{ $product->price }}">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+                        <div class="col-md-6">
+                            <label for="rawMaterials1" class="form-label fw-bold">Additional Raw Materials</label>
+                            <select class="form-control" id="rawMaterials1" name="additional" required>
+                                <option value="" disabled selected>Choose</option>
+                                <option value="No">No Additional</option>
+                                <option value="50 Extra people (172.5 SAR)">50 Extra people (172.5 SAR)</option>
+                                <option value="100 Extra people (345 SAR)">100 Extra people (345 SAR)</option>
+                                <option value="200 Extra people (690 SAR)">200 Extra people (690 SAR)</option>
+                                <option value="400 Extra people (1380 SAR)">400 Extra people (1380 SAR)</option>
+                                <option value="800 Extra people (2760 SAR)">800 Extra people (2760 SAR)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Favorite Sauces -->
+                    <div class="mb-4">
+                        <label for="rawMaterials" class="form-label fw-bold">Your Favorite Sauces</label>
+                        <div id="rawMaterials" class="form-control" style="border: none; padding: 0;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="fav_sauce[]" id="material1" value="Belgian Chocolate Free">
+                                <label class="form-check-label" for="material1">Belgian Chocolate Free</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="fav_sauce[]" id="material2" value="Caramel Sauce Free">
+                                <label class="form-check-label" for="material2">Caramel Sauce Free</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="fav_sauce[]" id="material3" value="Pistachio Sauce Free">
+                                <label class="form-check-label" for="material3">Pistachio Sauce Free</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Price Display -->
+                    <div class="text-end fw-bold mb-4">
+                        Total Price: <span id="totalPriceText" name="total_price">{{ $product->price }}</span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="modal-footer">
+                        <input type="hidden" id="totalPrice" name="total_price" value="{{ $product->price }}">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
+
 <script>
-
-
-
 
     function calculateTotalPrice() {
         const carType = document.getElementById('carType').value;
@@ -252,10 +246,7 @@
     document.getElementById('secondProduct').addEventListener('change', function() {
         updateTotalPrice();
     });
-</script>
 
-
-<script>
     const modal = document.getElementById('requestModal');
     modal.addEventListener('show.bs.modal', function (event) {
         var button = event.relatedTarget; // Button that triggered the modal
@@ -264,4 +255,5 @@
         modalBodyInput.value = productName; // Update the input value inside the modal
     });
 </script>
+
 @endsection
