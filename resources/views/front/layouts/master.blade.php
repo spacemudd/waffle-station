@@ -334,8 +334,17 @@
     // عرض رسالة النجاح إذا كانت موجودة
     if (successMessage) {
         Swal.fire({
-            icon: 'success',
+            icon: 'paymentsuccess',
             title: 'Payment Has Been Succesfully Accepted',
+            text: successMessage.getAttribute('data-message'),
+            confirmButtonText: 'Close'
+        });
+    }
+
+    if (successMessage) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Login Successful',
             text: successMessage.getAttribute('data-message'),
             confirmButtonText: 'Close'
         });
