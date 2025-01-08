@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     
     <!-- SweetAlert CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </head>
 
 
@@ -50,7 +50,7 @@
                     <ul class="dropdown-menu dropdown-menu-end shadow-lg rounded-3" aria-labelledby="profileDropdown">
                         <!-- My Profile -->
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="{{route('profile')}}">
                                 <i class="fas fa-user-circle me-2 text-primary"></i> My Profile
                             </a>
                         </li>
@@ -65,7 +65,7 @@
                         <li>
                             <form action="{{ route('logout') }}" method="POST" class="d-inline">
                                 @csrf
-                                <button type="submit" class="dropdown-item d-flex align-items-center">
+                                <button type="submit" class="dropdown-item d-flex align-items-center" style="background-color: transparent;">
                                     <i class="fas fa-sign-out-alt me-2 text-danger"></i> Logout
                                 </button>
                             </form>
@@ -314,5 +314,44 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    @if(session('success'))
+    <div id="success-message" data-message="{{ session('success') }}"></div>
+@endif
+
+@if(session('error'))
+    <div id="error-message" data-message="{{ session('error') }}"></div>
+@endif
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // قراءة الرسائل من العناصر المخفية
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+
+    // عرض رسالة النجاح إذا كانت موجودة
+    if (successMessage) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Payment Has Been Succesfully Accepted',
+            text: successMessage.getAttribute('data-message'),
+            confirmButtonText: 'Close'
+        });
+    }
+
+    // عرض رسالة الخطأ إذا كانت موجودة
+    if (errorMessage) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Payment Declined',
+            text: errorMessage.getAttribute('data-message'),
+            confirmButtonText: 'Close'
+        });
+    }
+</script>
+
+
     </body>
     </html>

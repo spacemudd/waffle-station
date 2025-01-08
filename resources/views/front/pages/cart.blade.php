@@ -1,6 +1,8 @@
 @extends('front.layouts.master')
 
 <link rel="stylesheet" href="{{ asset('front/cartstyle.css') }}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 
 
 @section('content')
@@ -20,13 +22,11 @@
                         <div class="card border-0">
                             <div class="card-header pb-0">
                                 <h2 class="card-title space">Checkout</h2>
-                                <p class="card-text text-muted mt-4 space">SHIPPING DETAILS</p>
                                 <hr class="my-0">
                             </div>
                            <!-- إضافة مكتبة Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-<div class="card-body">
+                           <div class="card-body">
     <div class="row mt-4">
         <div class="col">
             <p class="text-muted mb-2">PLEASE SELECT YOUR PAYMENT METHOD</p>
@@ -65,7 +65,41 @@
             </div>
         </div>
     </div>
+
+    <!-- إضافة زر الدفع هنا -->
+    <div class="row mt-4">
+        <div class="col text-center">
+            <button class="btn btn-primary btn-lg" type="button" id="pay_button">
+                Pay Now
+            </button>
+        </div>
+    </div>
 </div>
+
+<script>
+    document.getElementById('pay_button').addEventListener('click', function() {
+        // التحقق من اختيار خيار الدفع
+        var selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked');
+
+        if (selectedPaymentMethod) {
+            // إذا تم اختيار الدفع عبر البطاقة الائتمانية
+            if (selectedPaymentMethod.value === 'credit_debit_card') {
+                // التوجيه إلى الرابط الخاص بالدفع عبر البطاقة
+                window.location.href = '/NoonPayment'; // يمكنك تغيير هذا الرابط إلى الروت الذي تريده
+            }
+            // إذا تم اختيار الدفع عبر Tabby
+            else if (selectedPaymentMethod.value === 'tabby') {
+                window.location.href = '/tabby-payment'; // الروت الخاص بـ Tabby
+            }
+            // إذا تم اختيار الدفع عبر Tamara
+            else if (selectedPaymentMethod.value === 'tamara') {
+                window.location.href = '/tamara-payment'; // الروت الخاص بـ Tamara
+            }
+        } else {
+            alert('Please select a payment method.');
+        }
+    });
+</script>
 
                         </div>
                     </div>

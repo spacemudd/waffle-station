@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Profile;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -39,7 +41,6 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->password);
         $user->address = $request->address;
         $user->phone_number = $request->phone_number;
-        Log::info('Registering user with data: ', $request->all());
         // تشفير كلمة المرور
         if ($user->save()) {
             Log::info('User saved successfully.');
@@ -47,10 +48,16 @@ class RegisterController extends Controller
             Log::error('Failed to save user.');
         }
 
-
+        Profile::create([
+            'user_id' => $user->id,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'profile_picture' => $request->profile_picture, // تأكد من أن الصورة تم تحميلها
+        ]);
         
+        session()->flash('successMessage', 'Account created successfully. Please log in.');
 
-        // التوجيه إلى صفحة تسجيل الدخول أو صفحة أخرى
-        return redirect()->route('home')->with('success', 'Account created successfully. Please log in.');
+        // التوجيه إلى صفحة أخرى
+        return redirect()->route('home');
     }
 }

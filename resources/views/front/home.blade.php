@@ -10,6 +10,19 @@
 
 @section('content')
 
+@if(session('successMessage'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Account Has Been Created',
+            text: 'Thanks for Registration',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    </script>
+@endif
+
+
 @if(session('showLoginModal'))
     <script>
         Swal.fire({
@@ -143,7 +156,7 @@
             <div class="modal-body">
                 <form action="{{ route('booking.store') }}" method="POST" style="display: inline-block; width: 100%; padding: 20px;">
                     @csrf
-                    <input type="hidden" name="productName" value="{{ $product->product_name }}">
+                    <input type="text" name="productName" value="{{ $product->product_name }}">
                     
                     <!-- Booking Date Field -->
                     <div class="mb-4">
@@ -178,7 +191,6 @@
                                 <option value="" disabled selected>Choose</option>
                                 <option value="Waffle">Waffle</option>
                                 <option value="Mini PanCake">Mini PanCake</option>
-                                <option value="Japanese PanCake">Japanese PanCake</option>
                                 <option value="Waffle Stick">Waffle Stick</option>
                             </select>
                         </div>
@@ -224,8 +236,7 @@
                     <!-- Submit Button -->
                     <div class="modal-footer">
                         <input type="hidden" id="totalPrice" name="total_price" value="{{ $product->price }}">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #ffaf3d;">Submit</button>
                     </div>
                 </form>
             </div>

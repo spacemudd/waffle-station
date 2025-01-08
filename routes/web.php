@@ -10,6 +10,7 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BookingRequestController;
+use App\Http\Controllers\PaymentController;
 
 
 /*
@@ -58,4 +59,25 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 
+
+
 Route::post('/booking/store', [BookingRequestController::class, 'store'])->name('booking.store');
+
+Route::get('/profile', function() {
+    return view('front.profiles.profile');
+})->name('profile');
+
+
+
+Route::get('/NoonPayment', [PaymentController::class, 'showNoonPayment'])->name('Noon');
+Route::post('/NoonPayment', [PaymentController::class, 'processPayment'])->name('process-payment');
+
+route::get('/admin/orders', [BookingRequestController::class, 'showOrders'])->name('admin-order');
+Route::post('/booking-requests/clear', [BookingRequestController::class, 'clearBookingRequests'])->name('booking_requests.clear');
+// Route::get('/payment/success', function () {
+//     return view('front.payments.success');
+// })->name('payment.success');
+
+// Route::get('/payment/failure', function () {
+//     return view('front.payments.failure');
+// })->name('payment.failure');

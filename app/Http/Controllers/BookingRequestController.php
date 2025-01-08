@@ -32,6 +32,8 @@ class BookingRequestController extends Controller
                 'productName' => 'required|string|max:255',
             ]);
 
+            session(['validatedData' => $validatedData]);
+
             // الحصول على آخر رقم تم تخزينه في قاعدة البيانات وزيادته بمقدار 1
             $lastOrder = DB::table('booking_request')->max('order_id');
             $newOrderId = $lastOrder ? $lastOrder + 1 : 1; // إذا لم يكن هناك قيمة سابقة يبدأ من 1
@@ -72,4 +74,23 @@ class BookingRequestController extends Controller
             return redirect()->route('home')->with('showLoginModal', true);
         }
     }
+
+    public function showOrders()
+{
+    // استعلام لإحضار جميع الأوردرات
+    $orders = BookingRequest::all(); // أو يمكنك استخدام استعلامات مثل Order::paginate(10) إذا كنت تريد تقسيم النتائج
+    return view('back.pages.orders', compact('orders'));
+}
+
+
+public function clearBookingRequests()
+{
+    // حذف جميع السجلات من جدول booking_request
+    BookingRequest::truncate();
+
+    // إعادة توجيه المستخدم إلى نفس الصفحة مع رسالة نجاح
+    return redirect()->route('back.pages.orders')->with('success', 'تم مسح جميع طلبات الحجز.');
+}
+
+
 }

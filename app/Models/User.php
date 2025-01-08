@@ -21,4 +21,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+
+    public function invoices()
+{
+    return $this->hasMany(Invoice::class);
+}
+
 }
