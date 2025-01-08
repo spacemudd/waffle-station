@@ -46,7 +46,7 @@ class PaymentController extends Controller
 
             // إرجاع رسالة نجاح مع الفاتورة
             return redirect('/')
-                ->with('paymentsuccess', 'Thank you for your purchase! Your invoice number is ' . $invoice->invoice_number);
+                ->with('success', 'Thank you for your purchase! Your invoice number is ' . $invoice->invoice_number);
         }
 
         // إذا فشل الدفع، إرجاع رسالة فشل

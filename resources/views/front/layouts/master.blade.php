@@ -334,21 +334,21 @@
     // عرض رسالة النجاح إذا كانت موجودة
     if (successMessage) {
         Swal.fire({
-            icon: 'paymentsuccess',
+            icon: 'success',
             title: 'Payment Has Been Succesfully Accepted',
             text: successMessage.getAttribute('data-message'),
             confirmButtonText: 'Close'
         });
     }
 
-    if (successMessage) {
-        Swal.fire({
-            icon: 'success',
-            title: 'Login Successful',
-            text: successMessage.getAttribute('data-message'),
-            confirmButtonText: 'Close'
-        });
-    }
+    // if (successMessage) {
+    //     Swal.fire({
+    //         icon: 'success',
+    //         title: 'Login Successful',
+    //         text: successMessage.getAttribute('data-message'),
+    //         confirmButtonText: 'Close'
+    //     });
+    // }
 
     // عرض رسالة الخطأ إذا كانت موجودة
     if (errorMessage) {
