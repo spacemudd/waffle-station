@@ -21,7 +21,7 @@ class LoginController extends Controller
     
         if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);  // تسجيل دخول المستخدم
-            return redirect()->route('home')->with('success', 'تم الدخول بنجاح');
+            return redirect()->route('home');
         } else {
             // في حال فشل تسجيل الدخول
             return back()->withErrors(['email' => 'بيانات الدخول غير صحيحة']);
