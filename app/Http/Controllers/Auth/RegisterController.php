@@ -40,8 +40,13 @@ class RegisterController extends Controller
         $user->address = $request->address;
         $user->phone_number = $request->phone_number;
         Log::info('Registering user with data: ', $request->all());
- // تشفير كلمة المرور
-        $user->save();
+        // تشفير كلمة المرور
+        if ($user->save()) {
+            Log::info('User saved successfully.');
+        } else {
+            Log::error('Failed to save user.');
+        }
+
 
         
 
