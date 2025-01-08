@@ -45,7 +45,7 @@
             <source src="{{ asset('assets/video/Website-Video_20221.mp4') }}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <!-- الأزرار -->
+        <!-- الرأزرار -->
         <div id="ssb-container">
             <ul class="ssb-dark-hover">
                 <li id="ssb-btn-1">
