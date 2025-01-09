@@ -38,29 +38,11 @@ Route::get('/clear-session', function () {
     return redirect()->route('home');
 });
 
-Route::get('/admin', function(){
-    return view('back.pages.index');
-})->name('dashboard');
-
-
-
-
-Route::get('/admin/products',[ProductController::class, 'getItems'])->name('get-back-items');
-
-
-Route::get('/admin/settings', [SettingsController::class, 'index'])->name('settings.index');
-Route::post('/admin/settings', [SettingsController::class, 'store'])->name('settings.store');
-
-
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');Route::post('register', [RegisterController::class, 'register']);
 Route::post('register', [RegisterController::class, 'register']);
 
 Route::post('login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-
-
-
 
 Route::post('/booking/store', [BookingRequestController::class, 'store'])->name('booking.store');
 
@@ -68,12 +50,9 @@ Route::get('/profile', function() {
     return view('front.profiles.profile');
 })->name('profile');
 
-
-
 Route::get('/NoonPayment', [PaymentController::class, 'showNoonPayment'])->name('Noon');
 Route::post('/NoonPayment', [PaymentController::class, 'processPayment'])->name('process-payment');
 
-route::get('/admin/orders', [BookingRequestController::class, 'showOrders'])->name('admin-order');
 Route::post('/booking-requests/clear', [BookingRequestController::class, 'clearBookingRequests'])->name('booking_requests.clear');
 // Route::get('/payment/success', function () {
 //     return view('front.payments.success');
@@ -84,6 +63,18 @@ Route::post('/booking-requests/clear', [BookingRequestController::class, 'clearB
 // })->name('payment.failure');
 
 route::get('/contact', [HomeController::class, 'contactUs'])->name('contact-us');
-route::get('/admin/settings', [SettingsController::class, 'index'])->name('admin-settings');
-route::get('/admin/invoice', [AdminController::class, 'showInvoices'])->name('admin-invoice');
+
+
+
+
+// route::get('/admin/invoice', [AdminController::class, 'showInvoices'])->name('admin-invoice');
+// Route::get('/admin/products',[ProductController::class, 'getItems'])->name('get-back-items');
+// Route::get('/admin/settings', [SettingsController::class, 'index'])->name('settings.index');
+// Route::post('/admin/settings', [SettingsController::class, 'store'])->name('settings.store');
+// route::get('/admin/orders', [BookingRequestController::class, 'showOrders'])->name('admin-order');
+
+Route::get('/admin', function(){
+    return view('back.pages.index');
+})->name('dashboard');
+
 

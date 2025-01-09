@@ -295,7 +295,7 @@
 
               </li>
               <li class="nav-item">
-                <a href="{{route('admin-settings')}}" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-clipboard-fill"></i>
                   <p>
                     Settings
@@ -305,7 +305,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="{{route('admin-invoice')}}" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-clipboard-fill"></i>
                   <p>
                     Invoices
@@ -315,7 +315,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="{{route('admin-settings')}}" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-clipboard-fill"></i>
                   <p>
                     Users

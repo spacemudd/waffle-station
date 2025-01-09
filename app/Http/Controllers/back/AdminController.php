@@ -8,8 +8,8 @@ use App\Models\Invoice;
 class AdminController extends Controller
 {
     public function showInvoices(){
-        $invoices = Invoice::all();
-        return view('back.pages.invoices', compact('invoices'));
+        // $invoices = Invoice::all();
+        // return view('back.pages.invoices', compact('invoices'));
     }
 
     public function showUsers(){
