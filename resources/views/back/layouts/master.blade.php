@@ -220,7 +220,7 @@
                   class="user-image rounded-circle shadow"
                   alt="User Image"
                 />
-                <span class="d-none d-md-inline">Alexander Pierce</span>
+                <span class="d-none d-md-inline">Abdelrahman Yousef</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                 <!--begin::User Image-->
@@ -231,7 +231,7 @@
                     alt="User Image"
                   />
                   <p>
-                    Alexander Pierce - Web Developer
+                    Abdelrahman Yousef - Web Developer
                     <small>Member since Nov. 2023</small>
                   </p>
                 </li>
@@ -316,7 +316,7 @@
 
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('settings.index')}}" class="nav-link">
                   <i class="nav-icon bi bi-clipboard-fill"></i>
                   <p>
                     Settings
