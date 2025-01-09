@@ -73,7 +73,7 @@ route::get('/contact', [HomeController::class, 'contactUs'])->name('contact-us')
 // Route::post('/admin/settings', [SettingsController::class, 'store'])->name('settings.store');
 // route::get('/admin/orders', [BookingRequestController::class, 'showOrders'])->name('admin-order');
 
-Route::get('/admin', function(){
+Route::get('/admin/control/', function(){
     return view('back.pages.index');
 })->name('dashboard');
 
