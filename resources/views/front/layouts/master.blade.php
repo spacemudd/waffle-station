@@ -364,6 +364,21 @@
     }
 </script>
 
+<script>
+    document.addEventListener('click', function (event) {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        if (navbarToggler && navbarCollapse) {
+            if (navbarToggler.contains(event.target)) {
+                navbarCollapse.classList.toggle('show'); // التحكم في فتح وإغلاق القائمة
+            } else if (!navbarCollapse.contains(event.target)) {
+                navbarCollapse.classList.remove('show'); // إغلاق القائمة إذا نُقر خارجها
+            }
+        }
+    });
+</script>
+
 
     </body>
     </html>
