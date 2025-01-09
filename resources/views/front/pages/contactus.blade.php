@@ -25,7 +25,7 @@
 			        			<span class="fa fa-map-marker"></span>
 			        		</div>
 			        		<div class="text">
-				            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+				            <p><span>Address:</span> Al Sahaba Rd, Al Yarmuk, Riyadh 13243</p>
 				          </div>
 			          </div>
 							</div>

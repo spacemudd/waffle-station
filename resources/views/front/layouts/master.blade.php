@@ -223,7 +223,7 @@
     <footer class="text-center text-lg-start text-white" style="background-color: #1c2331; position: relative; width: 100%; margin-top: auto;">
 
     <!-- Section: Social media -->
-    <section class="d-flex justify-content-between p-4" style="background-color: #6351ce;">
+    <section class="d-flex justify-content-between p-4" style="background-color:#ffaf3d;">
         <!-- Left -->
         <div class="me-5">
             <span>Get connected with us on social networks:</span>
@@ -281,7 +281,7 @@
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <h6 class="text-uppercase fw-bold">Contact</h6>
                     <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-                    <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+                    <p><i class="fas fa-home mr-3"></i> Al Sahaba Rd, Al Yarmuk, Riyadh 13243</p>
                     <p><i class="fas fa-envelope mr-3"></i> info@wstation-sa.com</p>
                     <p><i class="fas fa-phone mr-3"></i>  + 966 55 645 6091</p>
                     <p><i class="fas fa-phone mr-3"></i>  + 966 56 581 9252</p>
