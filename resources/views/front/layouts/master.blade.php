@@ -33,7 +33,7 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('contact-us')}}">Contact Us</a></li>
 
                 <!-- Conditional Login or Profile Link -->
                 @auth
@@ -275,7 +275,7 @@
                     <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
                     <p><a href="#!" class="text-white">Home</a></p>
                     <p><a href="{{route('about')}}" class="text-white">About</a></p>
-                    <p><a href="#!" class="text-white">Contact Us</a></p>
+                    <p><a href="{{route('contact-us')}}" class="text-white">Contact Us</a></p>
                 </div>
 
                 <!-- Grid column -->

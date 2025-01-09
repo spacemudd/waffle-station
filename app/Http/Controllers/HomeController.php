@@ -15,4 +15,8 @@ class HomeController extends Controller
     public function about(){
         return view('front.about');
     }
+
+    public function contactUs(){
+        return view('front.pages.contactus');
+    }
 }

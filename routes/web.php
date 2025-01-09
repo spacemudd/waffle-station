@@ -83,7 +83,7 @@ Route::post('/booking-requests/clear', [BookingRequestController::class, 'clearB
 //     return view('front.payments.failure');
 // })->name('payment.failure');
 
-
+route::get('/contact', [HomeController::class, 'contactUs'])->name('contact-us');
 route::get('/admin/settings', [SettingsController::class, 'index'])->name('admin-settings');
 route::get('/admin/invoice', [AdminController::class, 'showInvoices'])->name('admin-invoice');
 
