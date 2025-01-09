@@ -56,10 +56,12 @@
 @endif
     
     <div class="video-container">
-        <video autoplay muted loop>
-            <source src="{{ asset('assets/video/Website-Video_20221.mp4') }}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <video autoplay muted loop playsinline>
+        <source src="{{ asset('assets/video/Website-Video_20221.mp4') }}" type="video/mp4">
+        <source src="{{ asset('assets/video/Website-Video_20221.webm') }}" type="video/webm">
+        <source src="{{ asset('assets/video/Website-Video_20221.ogg') }}" type="video/ogg">
+        Your browser does not support the video tag.
+    </video>
         <!-- الرأزرار -->
         <div id="ssb-container">
             <ul class="ssb-dark-hover">
