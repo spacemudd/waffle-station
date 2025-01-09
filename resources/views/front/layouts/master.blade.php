@@ -365,18 +365,21 @@
 </script>
 
 <script>
-    document.addEventListener('click', function (event) {
-        const navbarToggler = document.querySelector('.navbar-toggler');
-        const navbarCollapse = document.querySelector('.navbar-collapse');
+document.addEventListener('click', function (event) {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
 
-        if (navbarToggler && navbarCollapse) {
-            if (navbarToggler.contains(event.target)) {
-                navbarCollapse.classList.toggle('show'); // التحكم في فتح وإغلاق القائمة
-            } else if (!navbarCollapse.contains(event.target)) {
-                navbarCollapse.classList.remove('show'); // إغلاق القائمة إذا نُقر خارجها
-            }
+    if (navbarToggler && navbarCollapse) {
+        if (navbarToggler.contains(event.target)) {
+            // إذا تم النقر على الزر نفسه
+            navbarCollapse.classList.toggle('show');
+        } else if (!navbarCollapse.contains(event.target)) {
+            // إذا تم النقر خارج القائمة
+            navbarCollapse.classList.remove('show');
         }
-    });
+    }
+});
+
 </script>
 
 
