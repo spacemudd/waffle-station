@@ -12,6 +12,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
 
     <!-- SweetAlert CDN -->
 
@@ -20,6 +31,22 @@
 
 
     <body>
+
+    <script>
+    document.addEventListener('click', function (event) {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        if (navbarToggler && navbarCollapse) {
+            if (navbarToggler.contains(event.target)) {
+                navbarCollapse.classList.toggle('show'); // التحكم في فتح وإغلاق القائمة
+            } else if (!navbarCollapse.contains(event.target)) {
+                navbarCollapse.classList.remove('show'); // إغلاق القائمة إذا نُقر خارجها
+            }
+        }
+    });
+</script>
+
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top">
@@ -143,76 +170,76 @@
 </div>
 
 
-<!-- Modal Sign Up -->
-<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header" style="border-color: transparent;">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Logo Section -->
-        <div class="text-center mb-4">
-          <img src="{{asset('assets/logowaffle.png')}}" alt="Logo" class="logo">
+    <!-- Modal Sign Up -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header" style="border-color: transparent;">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
-        <form action="{{ url('register') }}" method="POST">
-            @csrf
-            <div class="mb-4">
-                <label for="fullName" class="form-label text-muted">Full Name</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                    <input type="text" class="form-control" id="fullName" name="full_name" required placeholder="Enter your full name">
-                </div>
-            </div>
-            <div class="mb-4">
-                <label for="email" class="form-label text-muted">Email</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                    <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email address">
-                </div>
-            </div>
-            <div class="mb-4">
-                <label for="phoneNumber" class="form-label text-muted">Phone Number</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                    <input type="text" class="form-control" id="phone_number" name="phone_number" required placeholder="Phone Number">
-                </div>
+        <div class="modal-body">
+            <!-- Logo Section -->
+            <div class="text-center mb-4">
+            <img src="{{asset('assets/logowaffle.png')}}" alt="Logo" class="logo">
             </div>
 
-            <div class="mb-4">
-                <label for="address" class="form-label text-muted">Address</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                    <input type="text" class="form-control" id="address" name="address" required placeholder="Address">
+            <form action="{{ url('register') }}" method="POST">
+                @csrf
+                <div class="mb-4">
+                    <label for="fullName" class="form-label text-muted">Full Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" id="fullName" name="full_name" required placeholder="Enter your full name">
+                    </div>
                 </div>
-            </div>
-            <div class="mb-4">
-                <label for="password" class="form-label text-muted">Password</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                    <input type="password" class="form-control" id="password" name="password" required placeholder="Choose a password">
+                <div class="mb-4">
+                    <label for="email" class="form-label text-muted">Email</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email address">
+                    </div>
                 </div>
-            </div>
-            <div class="mb-4">
-                <label for="password_confirmation" class="form-label text-muted">Confirm Password</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required placeholder="Confirm your password">
+                <div class="mb-4">
+                    <label for="phoneNumber" class="form-label text-muted">Phone Number</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" id="phone_number" name="phone_number" required placeholder="Phone Number">
+                    </div>
                 </div>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-success w-100 py-2" style="background-color: #ffaf3d;">Sign Up</button>
-            </div>
-            <div class="mt-3 text-center">
-                <span>Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="text-primary">Login</a></span>
-            </div>
-        </form>
 
-      </div>
+                <div class="mb-4">
+                    <label for="address" class="form-label text-muted">Address</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" id="address" name="address" required placeholder="Address">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="form-label text-muted">Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" id="password" name="password" required placeholder="Choose a password">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="password_confirmation" class="form-label text-muted">Confirm Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required placeholder="Confirm your password">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success w-100 py-2" style="background-color: #ffaf3d;">Sign Up</button>
+                </div>
+                <div class="mt-3 text-center">
+                    <span>Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="text-primary">Login</a></span>
+                </div>
+            </form>
+
+        </div>
+        </div>
     </div>
-  </div>
-</div>
+    </div>
 
 
 
@@ -296,71 +323,60 @@
     </section>
 
     <div id="whatsapp-button">
-    <a href="https://wa.me/+966556456091" target="_blank" rel="noopener noreferrer">
-        <img src="{{ asset('assets/iconwhatsapp.png') }}" alt="WhatsApp" />
-    </a>
-</div>
+        <a href="https://wa.me/+966556456091" target="_blank" rel="noopener noreferrer">
+            <img src="{{ asset('assets/iconwhatsapp.png') }}" alt="WhatsApp" />
+        </a>
+    </div>
 
-    <!-- Section: Links -->
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2020 Copyright: <a class="text-white" href="{{ route('home') }}">Waffle Station</a>
     </div>
-    <!-- Copyright -->
     </footer>
 
-
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
     @if(session('success'))
-    <div id="success-message" data-message="{{ session('success') }}"></div>
-@endif
+        <div id="success-message" data-message="{{ session('success') }}"></div>
+    @endif
 
-@if(session('error'))
-    <div id="error-message" data-message="{{ session('error') }}"></div>
-@endif
+    @if(session('error'))
+        <div id="error-message" data-message="{{ session('error') }}"></div>
+    @endif
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    // قراءة الرسائل من العناصر المخفية
-    const successMessage = document.getElementById('success-message');
-    const errorMessage = document.getElementById('error-message');
+    <script>
+        // قراءة الرسائل من العناصر المخفية
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
 
-    // عرض رسالة النجاح إذا كانت موجودة
-    if (successMessage) {
-        Swal.fire({
-            icon: 'success',
-            title: 'Payment Has Been Succesfully Accepted',
-            text: successMessage.getAttribute('data-message'),
-            confirmButtonText: 'Close'
-        });
-    }
+        // عرض رسالة النجاح إذا كانت موجودة
+        if (successMessage) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Payment Has Been Succesfully Accepted',
+                text: successMessage.getAttribute('data-message'),
+                confirmButtonText: 'Close'
+            });
+        }
 
-    // if (successMessage) {
-    //     Swal.fire({
-    //         icon: 'success',
-    //         title: 'Login Successful',
-    //         text: successMessage.getAttribute('data-message'),
-    //         confirmButtonText: 'Close'
-    //     });
-    // }
+        // if (successMessage) {
+        //     Swal.fire({
+        //         icon: 'success',
+        //         title: 'Login Successful',
+        //         text: successMessage.getAttribute('data-message'),
+        //         confirmButtonText: 'Close'
+        //     });
+        // }
 
-    // عرض رسالة الخطأ إذا كانت موجودة
-    if (errorMessage) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Payment Declined',
-            text: errorMessage.getAttribute('data-message'),
-            confirmButtonText: 'Close'
-        });
-    }
-</script>
+        // عرض رسالة الخطأ إذا كانت موجودة
+        if (errorMessage) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Payment Declined',
+                text: errorMessage.getAttribute('data-message'),
+                confirmButtonText: 'Close'
+            });
+        }
+    </script>
 
 
     </body>
