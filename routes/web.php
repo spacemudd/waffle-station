@@ -67,11 +67,11 @@ route::get('/contact', [HomeController::class, 'contactUs'])->name('contact-us')
 
 
 
-// route::get('/admin/invoice', [AdminController::class, 'showInvoices'])->name('admin-invoice');
-// Route::get('/admin/products',[ProductController::class, 'getItems'])->name('get-back-items');
-// Route::get('/admin/settings', [SettingsController::class, 'index'])->name('settings.index');
-// Route::post('/admin/settings', [SettingsController::class, 'store'])->name('settings.store');
-// route::get('/admin/orders', [BookingRequestController::class, 'showOrders'])->name('admin-order');
+route::get('/admin/invoice', [AdminController::class, 'showInvoices'])->name('admin-invoice');
+Route::get('/admin/products',[ProductController::class, 'getItems'])->name('get-back-items');
+Route::get('/admin/settings', [SettingsController::class, 'index'])->name('settings.index');
+Route::post('/admin/settings', [SettingsController::class, 'store'])->name('settings.store');
+route::get('/admin/orders', [BookingRequestController::class, 'showOrders'])->name('admin-order');
 
 Route::get('/admin/control/', function(){
     return view('back.pages.index');
