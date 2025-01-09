@@ -9,6 +9,7 @@ use App\Http\Controllers\PersonalFormController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\back\AdminController;
 use App\Http\Controllers\BookingRequestController;
 use App\Http\Controllers\PaymentController;
 
@@ -81,3 +82,8 @@ Route::post('/booking-requests/clear', [BookingRequestController::class, 'clearB
 // Route::get('/payment/failure', function () {
 //     return view('front.payments.failure');
 // })->name('payment.failure');
+
+
+route::get('/admin/settings', [SettingsController::class, 'index'])->name('admin-settings');
+route::get('/admin/invoice', [AdminController::class, 'showInvoices'])->name('admin-invoice');
+

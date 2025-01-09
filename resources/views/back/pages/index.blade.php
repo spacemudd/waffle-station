@@ -61,8 +61,8 @@
                 <!--begin::Small Box Widget 2-->
                 <div class="small-box text-bg-success">
                   <div class="inner">
-                    <h3>0<sup class="fs-5">%</sup></h3>
-                    <p>Bounce Rate</p>
+                    <h3>0<sup class="fs-5"></sup></h3>
+                    <p>Invoices</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -90,7 +90,7 @@
                 <div class="small-box text-bg-warning">
                   <div class="inner">
                     <h3>0</h3>
-                    <p>User Registrations</p>
+                    <p>Pending</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -118,7 +118,7 @@
                 <div class="small-box text-bg-danger">
                   <div class="inner">
                     <h3>0</h3>
-                    <p>Unique Visitors</p>
+                    <p>Users</p>
                   </div>
                   <svg
                     class="small-box-icon"

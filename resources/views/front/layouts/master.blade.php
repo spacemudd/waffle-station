@@ -91,7 +91,6 @@
 </nav>
 
 
-<!-- <x-login-modal /> -->
 
 
 <!-- Modal Login -->
@@ -232,23 +231,18 @@
         </div>
         <!-- Right -->
         <div>
-            <a href="" class="text-white me-4">
+            <a href="https://www.facebook.com/profile.php?id=61553741309441" class="text-white me-4">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="" class="text-white me-4">
+            <a href="https://x.com/stationwaffel" class="text-white me-4">
                 <i class="fab fa-twitter"></i>
             </a>
-            <a href="" class="text-white me-4">
-                <i class="fab fa-google"></i>
-            </a>
-            <a href="" class="text-white me-4">
+
+            <a href="https://www.instagram.com/stationwaffel/" class="text-white me-4">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="" class="text-white me-4">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="" class="text-white me-4">
-                <i class="fab fa-github"></i>
+            <a href="https://www.tiktok.com/@stationwaffel?lang=en" class="text-white me-4">
+                <i class="fab fa-tiktok"></i>
             </a>
         </div>
     </section>
@@ -300,6 +294,13 @@
             </div>
         </div>
     </section>
+
+    <div id="whatsapp-button">
+    <a href="https://wa.me/+966556456091" target="_blank" rel="noopener noreferrer">
+        <img src="{{ asset('assets/iconwhatsapp.png') }}" alt="WhatsApp" />
+    </a>
+</div>
+
     <!-- Section: Links -->
 
     <!-- Copyright -->

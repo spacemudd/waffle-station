@@ -62,23 +62,23 @@
         <div id="ssb-container">
             <ul class="ssb-dark-hover">
                 <li id="ssb-btn-1">
-                    <a href="#" target="_blank">
+                    <a href="https://www.facebook.com/profile.php?id=61553741309441" target="_blank">
                     <span class="fab fa-facebook-f"></span>
                     </a>
                 </li>
                 <li id="ssb-btn-0">
-                    <a href="#" target="_blank">
+                    <a href="https://www.instagram.com/stationwaffel/" target="_blank">
                     <span class="fab fa-instagram"></span>
                     </a>
                 </li>
                 <li id="ssb-btn-0">
-                    <a href="#" target="_blank">
+                    <a href="https://www.tiktok.com/@stationwaffel?lang=en" target="_blank">
                     <span class="fab fa-tiktok"></span>
                     </a>
                 </li>
                 <li id="ssb-btn-0">
-                    <a href="#" target="_blank">
-                    <span class="fas fa-location-pin"></span>
+                    <a href="https://x.com/stationwaffel" target="_blank">
+                    <span class="fab fa-twitter"></span>
                     </a>
                 </li>
             </ul>

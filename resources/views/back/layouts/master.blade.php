@@ -1,23 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <!--begin::Head-->
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Waffle Station - Admin</title>
-    <!--begin::Primary Meta Tags-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="AdminLTE v4 | Dashboard" />
-    <meta name="author" content="ColorlibHQ" />
-    <meta
-      name="description"
-      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS."
-    />
-    <meta
-      name="keywords"
-      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard"
-    />
-    <!--end::Primary Meta Tags-->
-    <!--begin::Fonts-->
+@extends('back.layouts.master')
+
+@section('content')
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
@@ -58,11 +41,7 @@
       integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
       crossorigin="anonymous"
     />
-  </head>
-  <!--end::Head-->
-  <!--begin::Body-->
-
-  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+ 
     <div class="app-wrapper">
 
       <nav class="app-header navbar navbar-expand bg-body">
@@ -316,10 +295,30 @@
 
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('admin-settings')}}" class="nav-link">
                   <i class="nav-icon bi bi-clipboard-fill"></i>
                   <p>
                     Settings
+                    <span class="nav-badge badge text-bg-secondary me-3"></span>
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('admin-invoice')}}" class="nav-link">
+                  <i class="nav-icon bi bi-clipboard-fill"></i>
+                  <p>
+                    Invoices
+                    <span class="nav-badge badge text-bg-secondary me-3"></span>
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('admin-settings')}}" class="nav-link">
+                  <i class="nav-icon bi bi-clipboard-fill"></i>
+                  <p>
+                    Users
                     <span class="nav-badge badge text-bg-secondary me-3"></span>
                   </p>
                 </a>
