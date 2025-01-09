@@ -280,7 +280,7 @@
 
               </li>
               <li class="nav-item">
-                <a href="{{route('get-back-items')}}" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-palette"></i>
                   <p>Products</p>
                 </a>
