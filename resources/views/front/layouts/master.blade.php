@@ -369,16 +369,15 @@ document.addEventListener('click', function (event) {
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navbarCollapse = document.querySelector('.navbar-collapse');
 
-    if (navbarToggler && navbarCollapse) {
-        if (navbarToggler.contains(event.target)) {
-            // إذا تم النقر على الزر نفسه
-            navbarCollapse.classList.toggle('show');
-        } else if (!navbarCollapse.contains(event.target)) {
-            // إذا تم النقر خارج القائمة
-            navbarCollapse.classList.remove('show');
-        }
+    // التحقق من إذا كان الضغط على الزر نفسه
+    if (navbarToggler.contains(event.target)) {
+        navbarCollapse.classList.toggle('show'); // فتح أو إغلاق القائمة
+    } else if (!navbarCollapse.contains(event.target)) {
+        // إغلاق القائمة إذا تم النقر خارجها
+        navbarCollapse.classList.remove('show');
     }
 });
+
 
 </script>
 
