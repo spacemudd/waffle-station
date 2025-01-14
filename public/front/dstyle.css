@@ -8,6 +8,7 @@
 
   main.container {
     padding-bottom: 50px; /* المسافة بين المحتوى والفوتر */
+    margin-top: 12rem !important;
 }
   .mt-5 {
     margin-top: 12rem !important;
