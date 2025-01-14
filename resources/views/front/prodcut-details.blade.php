@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@slick/slick.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@slick/slick-theme.css"/>
 
-<main class="container mt-5" style="margin-top: 12rem !important;">
+<main class="container mt-5" style="margin-top: 12rem !important; background-color: #f5ece0;
+">
   <div class="row">
     
     <!-- Left Column / Product Image -->

@@ -1,6 +1,7 @@
 /* Basic Styling */
-
-   
+body{
+  background-color: #f5ece0 !important;
+}
   .container {
     max-width: 1200px;
     
@@ -8,7 +9,7 @@
 
   main.container {
     padding-bottom: 50px; /* المسافة بين المحتوى والفوتر */
-    margin-top: 12rem !important;
+    background-color: transparent;
 }
   .mt-5 {
     margin-top: 12rem !important;
