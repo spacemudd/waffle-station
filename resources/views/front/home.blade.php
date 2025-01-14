@@ -9,6 +9,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
 
+<style>
+    .atext{
+        color: black;
+        text-decoration: none;
+    }
+</style>
 
 @section('content')
 
@@ -100,19 +106,21 @@
         <div class="row gy-4">
         @foreach($products as $product)
     <div class="col-md-4">
-        <a href="{{ route('product.details', ['id' => $product->id]) }}">
+        <a href="{{ route('product.details', ['id' => $product->id]) }}" class="atext">
             <div class="card text-black" style="width: 90%; font-size: 0.8rem; margin: auto;">
-                <img src="{{ asset('front/products/' . $product->image) }}" class="card-img-top" alt="{{ $product->product_name }}" style="height: 300px;" />
+                <img src="{{ asset('front/products/' . $product->image) }}" class="card-img-top" alt="{{ $product->product_name }}" style="height: 341px;" />
                 <div class="card-body" style="padding: 10px;">
                     <div class="text-center">
                         <h5 class="card-title" style="font-size: 1rem; margin-bottom: 5px;">{{ $product->product_name }}</h5>
                     </div>
                     <div>
                         <div class="d-flex justify-content-between" style="margin-bottom: 5px;">
-                            <span>Preparation Time</span><span>{{ $product->preparation_time }}</span>
+                        <span><i class="fas fa-clock"></i></span>
+                        <span>{{ $product->preparation_time }}</span>
                         </div>
                         <div class="d-flex justify-content-between" style="margin-bottom: 5px;">
-                            <span>Serve</span><span>{{ $product->serve }}</span>
+                        <span><i class="fas fa-utensils"></i></span>
+                        <span>{{ $product->serve }}</span>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between total font-weight-bold mt-2" style="font-size: 20px;">
@@ -124,15 +132,24 @@
                     <div class="text-center mt-3">
                     <a href="{{ route('product.details', ['id' => $product->id]) }}">
                     </a>
-                            <button 
-                                class="btn btn-primary d-flex align-items-center justify-content-center" 
-                                style="width: 48%; background-color: #ffaf3d; border-color: #ffaf3d; border-radius: 8px; font-size: 16px; font-weight: bold;" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#requestModal" 
-                                data-product-name="{{ $product->product_name }}">
-                                <i class="fas fa-cart-plus me-2"></i> <!-- الأيقونة -->
-                                Request Now
-                            </button>
+                    <div class="d-flex justify-content-between align-items-center" style="gap: 10px;">
+    <button 
+        class="btn btn-primary d-flex align-items-center justify-content-center" 
+        style="width: 48%; background-color: #ffaf3d; border-color: #ffaf3d; border-radius: 8px; font-size: 16px; font-weight: bold;" 
+        data-bs-toggle="modal" 
+        data-bs-target="#requestModal" 
+        data-product-name="{{ $product->product_name }}">
+        <i class="fas fa-cart-plus me-2"></i> <!-- الأيقونة -->
+        Request Now
+    </button>
+
+    <a href="https://wa.me/971508949923" target="_blank" 
+        style="color: #25D366; font-size: 24px; display: flex; align-items: center; justify-content: center; width: 48%; text-decoration: none; border: 1px solid #25D366; border-radius: 8px; padding: 10px;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+
                     </div>
                                     </div>
                                 </div>
