@@ -33,6 +33,7 @@ class BookingRequestController extends Controller
             ]);
 
             session(['validatedData' => $validatedData]);
+            session(['user' => $user['id']]);
 
             // الحصول على آخر رقم تم تخزينه في قاعدة البيانات وزيادته بمقدار 1
             $lastOrder = DB::table('booking_request')->max('order_id');

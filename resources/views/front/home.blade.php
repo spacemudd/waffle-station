@@ -8,6 +8,31 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('success'))
+    <script>
+        Swal.fire({
+            title: "نجاح!",
+            text: "{{ session('success') }}",
+            icon: "success",
+            confirmButtonText: "حسنًا"
+        });
+    </script>
+@endif
+
+@if(session('error'))
+    <script>
+        Swal.fire({
+            title: "خطأ!",
+            text: "{{ session('error') }}",
+            icon: "error",
+            confirmButtonText: "حسنًا"
+        });
+    </script>
+@endif
+
+
 
 <style>
     .atext{
@@ -147,7 +172,7 @@
         Request Now
     </button>
 
-    <a href="https://wa.me/971508949923" target="_blank" 
+    <a href="https://wa.me/966556456091" target="_blank" 
         style="color: #25D366; font-size: 24px; display: flex; align-items: center; justify-content: center; width: 48%; text-decoration: none; border: 1px solid #25D366; border-radius: 8px; padding: 10px;">
         <i class="fab fa-whatsapp"></i>
     </a>

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Order;
+use App\Models\User;
+
 use Darryldecode\Cart\Facades\CartFacade as Cart;
 
 class CartController extends Controller
@@ -35,4 +38,30 @@ class CartController extends Controller
         $cartItems = Cart::getContent();
         return view('front.pages.cart', compact('cartItems'));
     }
+
+
+    public function createOrder(Request $request)
+    {
+
+        $vd = session('validatedData');
+        $usr = session('user');
+
+
+        $favSauceString = implode(', ', $vd['fav_sauce']);
+        Order::create([
+            'main_product' => $vd['productName'],
+            'second_product' => $vd['second_product'],
+            'booking_date' => $vd['booking_date'],
+            'request_date' => $vd['booking_date'],
+            'additional' => $vd['additional'],
+            'fav_sauce' => $favSauceString, // استخدام السلسلة النصية
+            'total_price' => $vd['total_price'],
+            'user_id' => auth()->id(),
+        ]);
+    
+        return redirect('/test-noon');
+    }
+    
+
+
 }

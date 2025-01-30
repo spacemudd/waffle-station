@@ -85,7 +85,7 @@
             // إذا تم اختيار الدفع عبر البطاقة الائتمانية
             if (selectedPaymentMethod.value === 'credit_debit_card') {
                 // التوجيه إلى الرابط الخاص بالدفع عبر البطاقة
-                window.location.href = '/NoonPayment'; // يمكنك تغيير هذا الرابط إلى الروت الذي تريده
+                window.location.href = '/create-order'; // يمكنك تغيير هذا الرابط إلى الروت الذي تريده
             }
             // إذا تم اختيار الدفع عبر Tabby
             else if (selectedPaymentMethod.value === 'tabby') {

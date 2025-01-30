@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\back\AdminController;
 use App\Http\Controllers\BookingRequestController;
+use App\Http\Controllers\NoonPaymentController;
 use App\Http\Controllers\PaymentController;
 
 
@@ -63,10 +64,6 @@ Route::post('/booking-requests/clear', [BookingRequestController::class, 'clearB
 // })->name('payment.failure');
 
 route::get('/contact', [HomeController::class, 'contactUs'])->name('contact-us');
-
-
-
-
 route::get('/admin/invoice', [AdminController::class, 'showInvoices'])->name('admin-invoice');
 Route::get('/admin/products',[ProductController::class, 'getItems'])->name('get-back-items');
 Route::get('/admin/settings', [SettingsController::class, 'index'])->name('settings.index');
@@ -78,3 +75,6 @@ Route::get('/admin/control/', function(){
 })->name('dashboard');
 
 
+Route::get('/test-noon', [NoonPaymentController::class, 'index']);
+Route::get('/noon_payment_response', [NoonPaymentController::class, 'response'])->middleware('auth');
+Route::get('/create-order', [CartController::class, 'createOrder']);

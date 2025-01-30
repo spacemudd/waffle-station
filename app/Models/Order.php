@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Invoice extends Model
+class Order extends Model
 {
     use HasFactory;
-
-    protected $table = 'invoice'; // تحديد اسم الجدول
 
     protected $fillable = [
         'main_product',
@@ -17,11 +15,12 @@ class Invoice extends Model
         'booking_date',
         'request_date',
         'additional',
-        'fave_sauce',
+        'fav_sauce',
         'total_price',
         'user_id',
     ];
 
+    // إذا كنت تريد إضافة علاقة بالمستخدم
     public function user()
     {
         return $this->belongsTo(User::class);
