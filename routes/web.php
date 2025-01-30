@@ -45,23 +45,15 @@ Route::post('register', [RegisterController::class, 'register']);
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::post('/booking/store', [BookingRequestController::class, 'store'])->name('booking.store');
-
+Route::post('/booking/store', [BookingRequestController::class, 'store'])->name('booking.store')->middleware('auth');
 Route::get('/profile', function() {
     return view('front.profiles.profile');
-})->name('profile');
+})->name('profile')->middleware('auth');
 
 Route::get('/NoonPayment', [PaymentController::class, 'showNoonPayment'])->name('Noon');
-Route::post('/NoonPayment', [PaymentController::class, 'processPayment'])->name('process-payment');
-
+Route::post('/NoonPayment', [PaymentController::class, 'processPayment'])->name('process-payment')->middleware('auth');
 Route::post('/booking-requests/clear', [BookingRequestController::class, 'clearBookingRequests'])->name('booking_requests.clear');
-// Route::get('/payment/success', function () {
-//     return view('front.payments.success');
-// })->name('payment.success');
 
-// Route::get('/payment/failure', function () {
-//     return view('front.payments.failure');
-// })->name('payment.failure');
 
 route::get('/contact', [HomeController::class, 'contactUs'])->name('contact-us');
 route::get('/admin/invoice', [AdminController::class, 'showInvoices'])->name('admin-invoice');
@@ -77,4 +69,4 @@ Route::get('/admin/control/', function(){
 
 Route::get('/test-noon', [NoonPaymentController::class, 'index']);
 Route::get('/noon_payment_response', [NoonPaymentController::class, 'response'])->middleware('auth');
-Route::get('/create-order', [CartController::class, 'createOrder']);
+Route::get('/create-order', [CartController::class, 'createOrder'])->middleware('auth');
