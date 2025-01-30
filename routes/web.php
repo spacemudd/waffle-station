@@ -13,7 +13,7 @@ use App\Http\Controllers\back\AdminController;
 use App\Http\Controllers\BookingRequestController;
 use App\Http\Controllers\NoonPaymentController;
 use App\Http\Controllers\PaymentController;
-
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,9 +46,10 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::post('/booking/store', [BookingRequestController::class, 'store'])->name('booking.store')->middleware('auth');
-Route::get('/profile', function() {
-    return view('front.profiles.profile');
-})->name('profile')->middleware('auth');
+
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
+
 
 Route::get('/NoonPayment', [PaymentController::class, 'showNoonPayment'])->name('Noon');
 Route::post('/NoonPayment', [PaymentController::class, 'processPayment'])->name('process-payment')->middleware('auth');

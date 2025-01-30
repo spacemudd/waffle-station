@@ -6,25 +6,17 @@
 <div class="container" style="margin-top: 7%;">
     <div class="main-body">
     
-          <!-- Breadcrumb -->
-          <nav aria-label="breadcrumb" class="main-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
-              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-            </ol>
-          </nav>
-          <!-- /Breadcrumb -->
+
     
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="{{ asset('assets/profile.png') }}" alt="Admin" class="rounded-circle" width="150" height="124px;">
+                    <img src="{{ asset('assets/profile.png') }}" alt="Admin" class="rounded-circle" width="150" height="130px;">
                     <div class="mt-3">
                       <h4>{{ auth()->user()->full_name }}</h4>
-                      <p class="text-muted font-size-sm">{{ auth()->user()->address }}</p>
+                      <p class="text-muted font-size-sm">{{ auth()->user()->email}}</p>
 
                     </div>
                   </div>
@@ -74,23 +66,76 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                      <a class="btn btn-info " target="__blank" href="">Edit</a>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div class="row gutters-sm">
+    <div class="col-sm-12 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h6 class="d-flex align-items-center mb-3">
+                    <i class="material-icons text-info mr-2">Orders </i> History
+                </h6>
 
-                <div class="col-sm-6 mb-3">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Orders </i> History</h6>
-                 
-                    </div>
-                  </div>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Order #</th>
+                                <th>Products</th>
+                                <th>Order Date</th>
+                                <th>Total Amount</th>
+                                <th>Payment Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <span class="badge badge-primary" style="color: black;">Mini PanCake</span>
+                                </td>
+                                <td>2025-01-30</td>
+                                <td><span class="badge badge-success" style="color: black;">1500</span></td>
+                                <td>
+                                    <span class="badge badge-success" style="color: green;">Paid</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    <span class="badge badge-primary" style="color: black;">Mini PanCake</span>
+                                </td>
+                                <td>2025-01-30</td>
+                                <td><span class="badge badge-success" style="color: black;">1500</span></td>
+                                <td>
+                                    <span class="badge badge-danger" style="color: red;">Unpaid</span>
+                                    <a href="#" class="btn btn-primary btn-sm ml-4">Checkout</a> <!-- Increased margin-left -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    <span class="badge badge-primary" style="color: black;">Mini PanCake</span>
+                                </td>
+                                <td>2025-01-30</td>
+                                <td><span class="badge badge-success" style="color: black;">1500</span></td>
+                                <td>
+                                    <span class="badge badge-success" style="color: green;">Paid</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 
