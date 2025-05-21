@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    
+
     <!-- SweetAlert CDN -->
 
     </head>
@@ -38,12 +38,12 @@
                 <!-- Conditional Login or Profile Link -->
                 @auth
                 <li class="nav-item dropdown">
-                    <a 
-                        class="nav-link dropdown-toggle d-flex align-items-center" 
-                        href="#" 
-                        id="profileDropdown" 
-                        role="button" 
-                        data-bs-toggle="dropdown" 
+                    <a
+                        class="nav-link dropdown-toggle d-flex align-items-center"
+                        href="#"
+                        id="profileDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="fas fa-user me-2"></i> Profile
                     </a>
@@ -255,7 +255,9 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <img src="{{ asset('assets/logowaffle.png') }}" alt="Company Logo" style="max-width: 100%; height: auto;" />
                     <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-                    <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p>W Station
+                        W Station
+                        Bite. Smile. Repeat..</p>
                 </div>
 
                 <!-- Grid column -->
@@ -275,6 +277,7 @@
                     <p><a href="#!" class="text-white">Home</a></p>
                     <p><a href="{{route('about')}}" class="text-white">About</a></p>
                     <p><a href="{{route('contact-us')}}" class="text-white">Contact Us</a></p>
+                    <p><a href="{{ route('privacy-policy') }}"></a></p>
                 </div>
 
                 <!-- Grid column -->

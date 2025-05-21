@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PrivacyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -71,3 +72,5 @@ Route::get('/admin/control/', function(){
 Route::get('/test-noon', [NoonPaymentController::class, 'index']);
 Route::get('/noon_payment_response', [NoonPaymentController::class, 'response'])->middleware('auth');
 Route::get('/create-order', [CartController::class, 'createOrder'])->middleware('auth');
+Route
+Route::get('/privacy-policy', [PrivacyController::class, 'index'])->name('privacy-policy');
