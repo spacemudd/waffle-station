@@ -1,60 +1,76 @@
 @extends('front.layouts.master')
 <link rel="stylesheet" href="{{ asset('front/wstyle.css')}}">
 @section('content')
-    <div class="container-fluid p-0">
-        <img src="{{ asset('assets/Franchise-page-banner-scaled.jpg') }}" class="img-fluid w-100" style="height: 300px; object-fit: cover;" alt="Full-width image">
-    </div>
-
     <div class="container my-5">
-        <div class="row align-items-center">
-            <!-- Video Container -->
-            <div class="col-md-6">
-                <div class="video-container">
-                    <video controls width="100%" height="100%">
-                        <source src="{{asset('assets/video/WhatsApp Video 2024-12-22 at 12.15.56.mp4')}}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-            <!-- Text Container -->
-            <div class="col-md-6">
-                <h2 class="" style="color: orange;">Our Mission</h2>
-                <p style="font-size: 25px;">
-                    We are committed to delivering value through innovative solutions and services.
-                    Our mission is to empower individuals and businesses by fostering growth, integrity,
-                    and excellence in everything we do.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container my-5 p-4">
-        <h2 class="text-center fw-bold mb-4" style="color: orange;">Contact Us</h2>
-        <p class="text-center text-muted mb-5">
-            Feel free to reach out to us for any inquiries or support. We are here to help!
+        <h1 class="text-center mb-4" style="color: orange;">Privacy Policy</h1>
+        <p style="font-size: 18px;">
+            At شركة عالم المغامرة للترفيه, we value your privacy. "دبليو ستيشن" (W Station) is one of our entertainment brands, and this Privacy Policy explains how we handle your personal data when interacting with our services.
         </p>
-        <form action="#" method="POST" class="shadow p-4 rounded">
-            @csrf
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Enter your full name" required>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Enter your email address" required>
-                </div>
-            </div>
-            <div class="mb-4">
-                <input type="text" class="form-control form-control-lg" id="subject" name="subject" placeholder="What is your message about?" required>
-            </div>
-            <div class="mb-4">
-                <textarea class="form-control form-control-lg" id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
-            </div>
-            <div class="text-end">
-                <button type="submit" class="btn btn-primary btn-lg px-4 shadow" style="background-color: orange; border-color: orange;">Send Message</button>
-            </div>
-        </form>
+
+        <h3 class="mt-4" style="color: orange;">What We Collect</h3>
+        <p style="font-size: 16px;">
+            We collect your phone number when you place an order through our platform.
+        </p>
+
+        <h3 class="mt-4" style="color: orange;">How We Use Your Information</h3>
+        <p style="font-size: 16px;">
+            We do not share your phone number or personal data with any third party. We may use your phone number to send you promotional messages related to our products or offers.
+        </p>
+
+        <h3 class="mt-4" style="color: orange;">Unsubscribing</h3>
+        <p style="font-size: 16px;">
+            You can unsubscribe from promotional messages at any time by following the instructions provided in our messages.
+        </p>
+
+        <h3 class="mt-4" style="color: orange;">Data Security</h3>
+        <p style="font-size: 16px;">
+            We implement a variety of security measures to maintain the safety of your personal information when you place an order or access your account.
+        </p>
+
+        <h3 class="mt-4" style="color: orange;">Cookies</h3>
+        <p style="font-size: 16px;">
+            We may use cookies to enhance your experience, gather general visitor information, and track visits to our website.
+        </p>
+
+        <h3 class="mt-4" style="color: orange;">Third-Party Services</h3>
+        <p style="font-size: 16px;">
+            We may use third-party services for payment processing, marketing, or analytics. These providers are obligated to maintain the confidentiality of your information.
+        </p>
+
+        <h3 class="mt-4" style="color: orange;">Your Consent</h3>
+        <p style="font-size: 16px;">
+            By using our site, you consent to our website's privacy policy.
+        </p>
+
+        <h3 class="mt-4" style="color: orange;">Changes to our Privacy Policy</h3>
+        <p style="font-size: 16px;">
+            If we decide to change our privacy policy, we will post those changes on this page.
+        </p>
+
+        <h3 class="mt-4" style="color: orange;">Account Information</h3>
+        <p style="font-size: 16px;">
+            If you create an account with us, we may store basic personal information such as your name, phone number, and order history to improve your experience.
+        </p>
+
+        <h3 class="mt-4" style="color: orange;">Payment Data</h3>
+        <p style="font-size: 16px;">
+            Payment details are securely handled by trusted third-party processors. We do not store your full payment information on our servers.
+        </p>
+
+        <h3 class="mt-4" style="color: orange;">Children’s Privacy</h3>
+        <p style="font-size: 16px;">
+            Our services are not intended for individuals under the age of 13. We do not knowingly collect personal information from children.
+        </p>
+
+        <h3 class="mt-4" style="color: orange;">Contact Information</h3>
+        <p style="font-size: 16px;">
+            For any questions regarding this Privacy Policy, you may contact شركة عالم المغامرة للترفيه at our official communication channels:
+            <br>
+            العنوان: شارع الصحابة، حي اليرموك، الرياض، ص.ب. ١٣٢٤٣
+            <br>
+            الهاتف: 056 581 9252
+            <br>
+            الهاتف: 055 645 6091
+        </p>
     </div>
-
-
-
 @endsection
