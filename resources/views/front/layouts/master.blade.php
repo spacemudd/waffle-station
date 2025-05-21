@@ -257,7 +257,7 @@
                     <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
                     <p>W Station
                         W Station
-                        Bite. Smile. Repeat..</p>
+                        Bite. Smile. Repeat.</p>
                 </div>
 
                 <!-- Grid column -->
@@ -277,7 +277,7 @@
                     <p><a href="#!" class="text-white">Home</a></p>
                     <p><a href="{{route('about')}}" class="text-white">About</a></p>
                     <p><a href="{{route('contact-us')}}" class="text-white">Contact Us</a></p>
-                    <p><a href="{{ route('privacy-policy') }}"></a></p>
+                    <p><a href="{{ route('privacy-policy') }}">Privacy Policy</a></p>
                 </div>
 
                 <!-- Grid column -->
