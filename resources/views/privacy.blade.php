@@ -1,7 +1,7 @@
 @extends('front.layouts.master')
 <link rel="stylesheet" href="{{ asset('front/wstyle.css')}}">
 @section('content')
-    <div class="container my-5">
+    <div class="container my-5" style="margin-top: 100px;">
         <h1 class="text-center mb-4" style="color: orange;">Privacy Policy</h1>
         <p style="font-size: 18px;">
             At شركة عالم المغامرة للترفيه, we value your privacy. "دبليو ستيشن" (W Station) is one of our entertainment brands, and this Privacy Policy explains how we handle your personal data when interacting with our services.
