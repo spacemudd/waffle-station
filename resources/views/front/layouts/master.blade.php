@@ -277,7 +277,7 @@
                     <p><a href="#!" class="text-white">Home</a></p>
                     <p><a href="{{route('about')}}" class="text-white">About</a></p>
                     <p><a href="{{route('contact-us')}}" class="text-white">Contact Us</a></p>
-                    <p><a href="{{ route('privacy-policy') }}">Privacy Policy</a></p>
+                    <p><a href="{{ route('privacy-policy') }}" class="text-white">Privacy Policy</a></p>
                 </div>
 
                 <!-- Grid column -->
