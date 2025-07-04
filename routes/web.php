@@ -27,6 +27,10 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
+Route::get('fwd-qr', function() {
+    return redirect('https://www.instagram.com/wstationsa/');
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 
